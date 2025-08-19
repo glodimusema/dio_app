@@ -5,8 +5,9 @@ namespace App\Models\Ecoles;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class tecole_type_frais extends Model
+class tecole_option extends Model
 {
-    protected $fillable=['id','nom_type_frais','code_type_frais','author','refUser','active'];
-    protected $table = 'tecole_type_frais';
+    protected $fillable=['id','nom_option','code_option','refSection',
+    'author','refUser','active'];
+    protected $table = 'tecole_option';
 }
