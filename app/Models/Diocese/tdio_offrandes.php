@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class tdio_offrandes extends Model
 {
     protected $fillable=['id','refChretien','refTypeOffrande','refAnnee',
-    'montant_offrande','date_offrande','autres_details_offrende',
+    'montant_offrande','devise','taux','date_offrande','autres_details_offrende',
     'author','refUser','active'];
     protected $table = 'tdio_offrandes';
 }

@@ -19,6 +19,8 @@ class CreateTdioOffrandesTable extends Migration
             $table->foreignId('refTypeOffrande')->constrained('tdio_type_offrande')->restrictOnUpdate()->restrictOnDelete();
             $table->foreignId('refAnnee')->constrained('tperso_annee')->restrictOnUpdate()->restrictOnDelete();
             $table->double('montant_offrande');
+            $table->string('devise',50);
+            $table->double('taux');
             $table->date('date_offrande');
             $table->string('autres_details_offrende',225);
             $table->string('author',100);

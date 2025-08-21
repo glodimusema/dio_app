@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class tdio_type_offrande extends Model
 {
-    protected $fillable=['id','nom_type_offrande','montant','author','refUser','active'];
+    protected $fillable=['id','nom_type_offrande','montant','devise','taux','author','refUser','active'];
     protected $table = 'tdio_type_offrande';
 }

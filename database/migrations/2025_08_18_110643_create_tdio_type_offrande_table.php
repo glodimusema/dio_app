@@ -17,6 +17,8 @@ class CreateTdioTypeOffrandeTable extends Migration
             $table->id();
             $table->string('nom_type_offrande',225);
             $table->double('montant')->default(0);
+            $table->string('devise',50);
+            $table->double('taux');
             $table->string('author',100);
             $table->foreignId('refUser')->constrained('users')->restrictOnUpdate()->restrictOnDelete();           
             $table->string('active')->default('OUI');

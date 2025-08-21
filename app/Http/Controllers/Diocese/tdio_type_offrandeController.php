@@ -33,7 +33,7 @@ class tdio_type_offrandeController extends Controller
 
         $data = DB::table("tdio_type_offrande")
         ->select("tdio_type_offrande.id", "tdio_type_offrande.nom_type_offrande",
-        "tdio_type_offrande.montant",'tdio_type_offrande.author',
+        "tdio_type_offrande.montant",'devise','taux','tdio_type_offrande.author',
         'tdio_type_offrande.refUser','tdio_type_offrande.active', 
         "tdio_type_offrande.created_at");
 
@@ -56,7 +56,7 @@ class tdio_type_offrandeController extends Controller
     {
          $data = DB::table("tdio_type_offrande")
         ->select("tdio_type_offrande.id", "tdio_type_offrande.nom_type_offrande",
-        "tdio_type_offrande.montant",'tdio_type_offrande.author',
+        "tdio_type_offrande.montant",'devise','taux','tdio_type_offrande.author',
         'tdio_type_offrande.refUser','tdio_type_offrande.active', 
         "tdio_type_offrande.created_at")
         ->get();
