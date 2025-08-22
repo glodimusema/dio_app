@@ -63,7 +63,7 @@ class tdio_carreController extends Controller
     }
 
 
-    function fetch_tdio_communaute_2()
+    function fetch_tdio_carre_2()
     {
          $data = DB::table('tdio_carre')
         ->join('tdio_communaute','tdio_communaute.id','=','tdio_carre.refCommunaute')

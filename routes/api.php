@@ -976,7 +976,7 @@ Route::group(['namespace'   =>  "Ventes"], function(){
     Route::get("fetch_detail_requisition_vente/{id}", 'tvente_detail_requisitionController@fetch_detail_requisition_vente');
 
     //insert_dataGlobalGros
-//insert_dataGlobalGrosCash
+
 
     Route::get("fetch_vente_detail_vente", 'tvente_detail_venteController@all');
     Route::get("fetch_vente_detail_parmois", 'tvente_detail_venteController@ventesParMois');
@@ -1350,6 +1350,154 @@ Route::group(['namespace'   =>  "Ventes"], function(){
 });
 
 
+Route::group(['namespace'   =>  "Diocese"], function(){
+
+    Route::get("fetch_dio_type_offrande", 'tdio_type_offrandeController@index');
+    Route::get("fetch_single_dio_type_offrande/{id}", 'tdio_type_offrandeController@edit');
+    Route::get("delete_dio_type_offrande/{id}", 'tdio_type_offrandeController@destroy');
+    Route::post("insert_dio_type_offrande", 'tdio_type_offrandeController@store');
+    Route::get("fetch_tdio_type_offrande_2", 'tdio_type_offrandeController@fetch_tdio_type_offrande_2');
+
+    Route::get("fetch_dio_type_sacrement", 'tdio_type_sacrementController@index');
+    Route::get("fetch_single_dio_type_sacrement/{id}", 'tdio_type_sacrementController@edit');
+    Route::get("delete_dio_type_sacrement/{id}", 'tdio_type_sacrementController@destroy');
+    Route::post("insert_dio_type_sacrement", 'tdio_type_sacrementController@store');
+    Route::get("fetch_tdio_type_sacrement_2", 'tdio_type_sacrementController@fetch_tdio_type_sacrement_2');
+
+    Route::get("fetch_dio_categorie_paroisse", 'tdio_categorie_paroisseController@index');
+    Route::get("fetch_single_dio_categorie_paroisse/{id}", 'tdio_categorie_paroisseController@edit');
+    Route::get("delete_dio_categorie_paroisse/{id}", 'tdio_categorie_paroisseController@destroy');
+    Route::post("insert_dio_categorie_paroisse", 'tdio_categorie_paroisseController@store');
+    Route::get("fetch_tdio_categorie_paroisse_2", 'tdio_categorie_paroisseController@fetch_tdio_categorie_paroisse_2');
+
+    Route::get("fetch_dio_paroisse", 'tdio_paroisseController@index');
+    Route::get("fetch_single_dio_paroisse/{id}", 'tdio_paroisseController@edit');
+    Route::get("delete_dio_paroisse/{id}", 'tdio_paroisseController@destroy');
+    Route::post("insert_dio_paroisse", 'tdio_paroisseController@store');
+    Route::get("fetch_tdio_paroisse_2", 'tdio_paroisseController@fetch_tdio_paroisse_2');
+
+    Route::get("fetch_dio_quartier", 'tdio_quartierController@index');
+    Route::get("fetch_single_dio_quartier/{id}", 'tdio_quartierController@edit');
+    Route::get("delete_dio_quartier/{id}", 'tdio_quartierController@destroy');
+    Route::post("insert_dio_quartier", 'tdio_quartierController@store');
+    Route::get("fetch_tdio_quartier_2", 'tdio_quartierController@fetch_tdio_quartier_2');
+
+    Route::get("fetch_dio_communaute", 'tdio_communauteController@index');
+    Route::get("fetch_single_dio_communaute/{id}", 'tdio_communauteController@edit');
+    Route::get("delete_dio_communaute/{id}", 'tdio_communauteController@destroy');
+    Route::post("insert_dio_communaute", 'tdio_communauteController@store');
+    Route::get("fetch_tdio_communaute_2", 'tdio_communauteController@fetch_tdio_communaute_2');
+
+    Route::get("fetch_dio_carre", 'tdio_carreController@index');
+    Route::get("fetch_single_dio_carre/{id}", 'tdio_carreController@edit');
+    Route::get("delete_dio_carre/{id}", 'tdio_carreController@destroy');
+    Route::post("insert_dio_carre", 'tdio_carreController@store');
+    Route::get("fetch_tdio_carre_2", 'tdio_carreController@fetch_tdio_carre_2');
+
+    Route::get("fetch_dio_responsable_paroisse", 'tdio_responsable_paroisseController@index');
+    Route::get("fetch_single_dio_responsable_paroisse/{id}", 'tdio_responsable_paroisseController@edit');
+    Route::get("delete_dio_responsable_paroisse/{id}", 'tdio_responsable_paroisseController@destroy');
+    Route::post("insert_dio_responsable_paroisse", 'tdio_responsable_paroisseController@store');
+    Route::get("fetch_tdio_responsable_paroisse_2", 'tdio_responsable_paroisseController@fetch_tdio_responsable_paroisse_2');
+
+
+    Route::get("fetch_chretien", 'tdio_chretienController@index');
+    Route::get("fetch_list_chretien", 'tdio_chretienController@fetch_list_chretien');
+    Route::get("fetch_single_chretien/{id}", 'tdio_chretienController@edit');
+    Route::get("delete_chretien/{id}", 'tdio_chretienController@destroy');
+    Route::post("insert_chretien", 'tdio_chretienController@insertData');
+    Route::post("update_chretien", 'tdio_chretienController@updateData');
+    Route::get("Profiletchretien/{id}", 'tdio_chretienController@Profiletdio_chretien');
+  
+    Route::get("fetch_dio_offrandes", 'tdio_offrandesController@all');
+    Route::get("fetch_dio_offrandes/{refEntete}", 'tdio_offrandesController@fetch_data_entete');
+    Route::get("fetch_single_dio_offrandes/{id}", 'tdio_offrandesController@fetch_single_data');    
+    Route::post("insert_dio_offrandes", 'tdio_offrandesController@insert_data');
+    Route::post("insert_dio_offrandes_globale", 'tdio_offrandesController@insert_dataGlobal');
+    Route::post("update_dio_offrandes/{id}", 'tdio_offrandesController@update_data');
+    Route::get("delete_dio_offrandes/{id}", 'tdio_offrandesController@delete_data');
+
+    Route::get("fetch_dio_sacrements", 'tdio_sacrementsController@all');
+    Route::get("fetch_dio_sacrements/{refEntete}", 'tdio_sacrementsController@fetch_data_entete');
+    Route::get("fetch_single_dio_sacrements/{id}", 'tdio_sacrementsController@fetch_single_data');    
+    Route::post("insert_dio_sacrements", 'tdio_sacrementsController@insert_data');
+    Route::post("insert_dio_sacrements_globale", 'tdio_sacrementsController@insert_dataGlobal');
+    Route::post("update_dio_sacrements/{id}", 'tdio_sacrementsController@update_data');
+    Route::get("delete_dio_sacrements/{id}", 'tdio_sacrementsController@delete_data');
+
+});
+
+
+Route::group(['namespace'   =>  "Ecoles"], function(){
+
+    Route::get("fetch_ecole_classe", 'tecole_classeController@index');
+    Route::get("fetch_single_ecole_classe/{id}", 'tecole_classeController@edit');
+    Route::get("delete_ecole_classe/{id}", 'tecole_classeController@destroy');
+    Route::post("insert_ecole_classe", 'tecole_classeController@store');
+    Route::get("fetch_tecole_classe_2", 'tecole_classeController@fetch_tecole_classe_2');
+
+    Route::get("fetch_ecole_section", 'tecole_sectionController@index');
+    Route::get("fetch_single_ecole_section/{id}", 'tecole_sectionController@edit');
+    Route::get("delete_ecole_section/{id}", 'tecole_sectionController@destroy');
+    Route::post("insert_ecole_section", 'tecole_sectionController@store');
+    Route::get("fetch_tecole_section_2", 'tecole_sectionController@fetch_tecole_section_2');
+
+    Route::get("fetch_ecole_option", 'tecole_optionController@index');
+    Route::get("fetch_single_ecole_option/{id}", 'tecole_optionController@edit');
+    Route::get("delete_ecole_option/{id}", 'tecole_optionController@destroy');
+    Route::post("insert_ecole_option", 'tecole_optionController@store');
+    Route::get("fetch_tecole_option_2", 'tecole_optionController@fetch_tecole_option_2');
+
+
+    Route::get("fetch_ecole_type_division", 'tecole_type_divisionController@index');
+    Route::get("fetch_single_ecole_type_division/{id}", 'tecole_type_divisionController@edit');
+    Route::get("delete_ecole_type_division/{id}", 'tecole_type_divisionController@destroy');
+    Route::post("insert_ecole_type_division", 'tecole_type_divisionController@store');
+    Route::get("fetch_tecole_type_division_2", 'tecole_type_divisionController@fetch_tecole_type_division_2');
+
+    Route::get("fetch_ecole_type_annee", 'tecole_type_anneeController@index');
+    Route::get("fetch_single_ecole_type_annee/{id}", 'tecole_type_anneeController@edit');
+    Route::get("delete_ecole_type_annee/{id}", 'tecole_type_anneeController@destroy');
+    Route::post("insert_ecole_type_annee", 'tecole_type_anneeController@store');
+    Route::get("fetch_tecole_type_annee_2", 'tecole_type_anneeController@fetch_tecole_type_annee_2');
+
+    Route::get("fetch_ecole_type_frais", 'tecole_type_fraisController@index');
+    Route::get("fetch_single_ecole_type_frais/{id}", 'tecole_type_fraisController@edit');
+    Route::get("delete_ecole_type_frais/{id}", 'tecole_type_fraisController@destroy');
+    Route::post("insert_ecole_type_frais", 'tecole_type_fraisController@store');
+    Route::get("fetch_tecole_type_frais_2", 'tecole_type_fraisController@fetch_tecole_type_frais_2');
+
+    Route::get("fetch_ecole_eleve", 'tecole_elevesController@index');
+    Route::get("fetch_list_ecole_eleve", 'tecole_elevesController@fetch_list_eleve');
+    Route::get("fetch_single_ecole_eleve/{id}", 'tecole_elevesController@edit');
+    Route::get("delete_ecole_eleve/{id}", 'tecole_elevesController@destroy');
+    Route::post("insert_ecole_eleve", 'tecole_elevesController@insertData');
+    Route::post("update_ecole_eleve", 'tecole_elevesController@updateData');
+    Route::get("Profileteleve/{id}", 'tecole_elevesController@Profiletecole_eleves');
+  
+    Route::get("fetch_ecole_inscriptions", 'tecole_inscriptionsController@all');
+    Route::get("fetch_ecole_inscriptions/{refEntete}", 'tecole_inscriptionsController@fetch_data_entete');
+    Route::get("fetch_single_ecole_inscriptions/{id}", 'tecole_inscriptionsController@fetch_single_data');    
+    Route::post("insert_ecole_inscriptions", 'tecole_inscriptionsController@insert_data');
+    Route::post("insert_ecole_inscriptions_globale", 'tecole_inscriptionsController@insert_dataGlobal');
+    Route::post("update_ecole_inscriptions/{id}", 'tecole_inscriptionsController@update_data');
+    Route::get("delete_ecole_inscriptions/{id}", 'tecole_inscriptionsController@delete_data');
+
+    Route::get("fetch_ecole_paiements", 'tecole_paiementsController@all');
+    Route::get("fetch_ecole_paiements/{refEntete}", 'tecole_paiementsController@fetch_data_entete');
+    Route::get("fetch_single_ecole_paiements/{id}", 'tecole_paiementsController@fetch_single_data');    
+    Route::post("insert_ecole_paiements", 'tecole_paiementsController@insert_data');
+    Route::post("update_ecole_paiements/{id}", 'tecole_paiementsController@update_data');
+    Route::get("delete_ecole_paiements/{id}", 'tecole_paiementsController@delete_data');
+
+    Route::get("fetch_ecole_previsions", 'tecole_previsionsController@index');
+    Route::get("fetch_single_ecole_previsions/{id}", 'tecole_previsionsController@edit');
+    Route::get("delete_ecole_previsions/{id}", 'tecole_previsionsController@destroy');
+    Route::post("insert_ecole_previsions", 'tecole_previsionsController@store');
+    Route::get("fetch_tecole_previsions_2", 'tecole_previsionsController@fetch_tecole_previsions_2');
+   
+
+});
 
 
 

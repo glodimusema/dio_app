@@ -65,7 +65,7 @@ class tecole_previsionsController extends Controller
     }
 
 
-    function fetch_tecole_option_2()
+    function fetch_tecole_previsions_2()
     {
          $data = DB::table('tecole_previsions')
             ->join('tecole_classe','tecole_classe.id','=','tecole_previsions.refClasse')

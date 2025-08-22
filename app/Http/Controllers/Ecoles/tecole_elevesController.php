@@ -117,7 +117,7 @@ class tecole_elevesController extends Controller
     }
 
 
-    function fetch_list_agent()
+    function fetch_list_eleve()
     {
         $data = DB::table('tecole_eleves')            
         ->join('avenues' , 'avenues.id','=','tecole_eleves.refAvenue_eleve')

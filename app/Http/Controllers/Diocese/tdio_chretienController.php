@@ -126,7 +126,7 @@ class tdio_chretienController extends Controller
     }
 
 
-    function fetch_list_agent()
+    function fetch_list_chretien()
     {
         $data = DB::table('tdio_chretien')            
         ->join('tdio_communaute' , 'tdio_communaute.id','=','tdio_chretien.refCommunaute')
