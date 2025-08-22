@@ -72,14 +72,41 @@ class tdio_type_offrandeController extends Controller
      */
     public function store(Request $request)
     {
+        $montants = 0;
+        $devises = '';
+        $taux = 0;
+
+        $data5 =  DB::table("tvente_taux")
+        ->select("tvente_taux.id", "tvente_taux.taux", 
+        "tvente_taux.created_at", "tvente_taux.author")
+        ->first(); 
+        if ($data5) 
+        {                                
+           $taux=$data5->taux;                           
+        }
+        
+        if($request->devise = "FC")
+        {
+            $montants = floatval($request->montant) / floatval($taux);
+            $devises = 'USD';
+        }
+        else
+        {
+            $montants = floatval($request->montant);
+            $devises = floatval($request->devise);
+        }
+
         //
         if ($request->id !='') 
         {
+            //devise taux
             # code...
             // update  
             $data = tdio_type_offrande::where("id", $request->id)->update([
                 'nom_type_offrande' =>  $request->nom_type_offrande,
                 'montant' =>  $request->montant,
+                'devise' =>  $devises,
+                'taux' =>  $taux,
                 'author' =>  $request->author,
                 'refUser' =>  $request->refUser,
                 'active' =>  $request->active
@@ -93,6 +120,8 @@ class tdio_type_offrandeController extends Controller
             $data = tdio_type_offrande::create([
                 'nom_type_offrande' =>  $request->nom_type_offrande,
                 'montant' =>  $request->montant,
+                'devise' =>  $devises,
+                'taux' =>  $taux,
                 'author' =>  $request->author,
                 'refUser' =>  $request->refUser,
                 'active' =>  $request->active
