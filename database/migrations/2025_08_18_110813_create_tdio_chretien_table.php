@@ -13,9 +13,12 @@ class CreateTdioChretienTable extends Migration
      */
     public function up()
     {
+        //etatcivil
         Schema::create('tdio_chretien', function (Blueprint $table) {
             $table->id();
             $table->string('noms_chretien',225);
+            $table->string('sexe_chretien',225);
+            $table->string('etatcivil_chretien',225);
             $table->string('adresse_chretien',225);
             $table->string('contact1_chretien',15);
             $table->string('contact2_chretien',15);
@@ -24,6 +27,7 @@ class CreateTdioChretienTable extends Migration
             $table->string('nom_mere_chretien',225);
             $table->string('lieunaissance_chretien',225);
             $table->date('datenaissance_chretien');  
+            $table->string('code_secret',20);
             $table->string('photo');           
             $table->foreignId('refCommunaute')->constrained('tdio_communaute')->restrictOnUpdate()->restrictOnDelete();
             $table->date('date_sacrement');

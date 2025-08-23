@@ -1410,7 +1410,7 @@ Route::group(['namespace'   =>  "Diocese"], function(){
     Route::get("Profiletchretien/{id}", 'tdio_chretienController@Profiletdio_chretien');
   
     Route::get("fetch_dio_offrandes", 'tdio_offrandesController@all');
-    Route::get("fetch_dio_offrandes/{refEntete}", 'tdio_offrandesController@fetch_data_entete');
+    Route::get("fetch_dio_offrande_by_chretien/{refEntete}", 'tdio_offrandesController@fetch_data_entete');
     Route::get("fetch_single_dio_offrandes/{id}", 'tdio_offrandesController@fetch_single_data');    
     Route::post("insert_dio_offrandes", 'tdio_offrandesController@insert_data');
     Route::post("insert_dio_offrandes_globale", 'tdio_offrandesController@insert_dataGlobal');

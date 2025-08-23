@@ -620,7 +620,7 @@ export default {
                 // Simuler un processus d'enregistrement
                 if (this.$refs.form.validate()) {
                 this.isLoading(true);
-                this.svData.author = this.userData.name;
+                    this.svData.author = this.userData.name;
                     this.svData.refUser = this.userData.id;
                     this.svData.serveur_id = 1;
                     this.svData.table_id = 1;

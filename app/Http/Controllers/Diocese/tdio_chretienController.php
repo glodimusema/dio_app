@@ -37,9 +37,10 @@ class tdio_chretienController extends Controller
             ->join('tdio_paroisse','tdio_paroisse.id','=','tdio_quartier.refParoisse')
             ->join('tdio_categorie_paroisse','tdio_categorie_paroisse.id','=','tdio_paroisse.refCatParoisse')
             //Chretien
-            ->select("tdio_chretien.id",'noms_chretien','adresse_chretien','contact1_chretien',
+            ->select("tdio_chretien.id",'noms_chretien','sexe_chretien','etatcivil_chretien',
+            'adresse_chretien','contact1_chretien',
             'contact2_chretien','mail_chretien','nom_pere_chretien','nom_mere_chretien',
-            'lieunaissance_chretien','datenaissance_chretien','photo','refCommunaute','date_sacrement',
+            'lieunaissance_chretien','datenaissance_chretien','code_secret','photo','refCommunaute','date_sacrement',
             'statut_sacrement','tdio_chretien.author','tdio_chretien.refUser',
             'tdio_chretien.active',"tdio_chretien.created_at",
 
@@ -70,9 +71,9 @@ class tdio_chretienController extends Controller
             ->join('tdio_paroisse','tdio_paroisse.id','=','tdio_quartier.refParoisse')
             ->join('tdio_categorie_paroisse','tdio_categorie_paroisse.id','=','tdio_paroisse.refCatParoisse')
             //Chretien
-            ->select("tdio_chretien.id",'noms_chretien','adresse_chretien','contact1_chretien',
+            ->select("tdio_chretien.id",'noms_chretien','sexe_chretien','etatcivil_chretien','adresse_chretien','contact1_chretien',
             'contact2_chretien','mail_chretien','nom_pere_chretien','nom_mere_chretien',
-            'lieunaissance_chretien','datenaissance_chretien','photo','refCommunaute','date_sacrement',
+            'lieunaissance_chretien','datenaissance_chretien','code_secret','photo','refCommunaute','date_sacrement',
             'statut_sacrement','tdio_chretien.author','tdio_chretien.refUser',
             'tdio_chretien.active',"tdio_chretien.created_at",
 
@@ -102,9 +103,9 @@ class tdio_chretienController extends Controller
         ->join('tdio_paroisse','tdio_paroisse.id','=','tdio_quartier.refParoisse')
         ->join('tdio_categorie_paroisse','tdio_categorie_paroisse.id','=','tdio_paroisse.refCatParoisse')
         //Chretien
-        ->select("tdio_chretien.id",'noms_chretien','adresse_chretien','contact1_chretien',
+        ->select("tdio_chretien.id",'noms_chretien','sexe_chretien','etatcivil_chretien','adresse_chretien','contact1_chretien',
         'contact2_chretien','mail_chretien','nom_pere_chretien','nom_mere_chretien',
-        'lieunaissance_chretien','datenaissance_chretien','photo','refCommunaute','date_sacrement',
+        'lieunaissance_chretien','datenaissance_chretien','code_secret','photo','refCommunaute','date_sacrement',
         'statut_sacrement','tdio_chretien.author','tdio_chretien.refUser',
         'tdio_chretien.active',"tdio_chretien.created_at",
 
@@ -134,9 +135,9 @@ class tdio_chretienController extends Controller
         ->join('tdio_paroisse','tdio_paroisse.id','=','tdio_quartier.refParoisse')
         ->join('tdio_categorie_paroisse','tdio_categorie_paroisse.id','=','tdio_paroisse.refCatParoisse')
         //Chretien
-        ->select("tdio_chretien.id",'noms_chretien','adresse_chretien','contact1_chretien',
+        ->select("tdio_chretien.id",'noms_chretien','sexe_chretien','etatcivil_chretien','adresse_chretien','contact1_chretien',
         'contact2_chretien','mail_chretien','nom_pere_chretien','nom_mere_chretien',
-        'lieunaissance_chretien','datenaissance_chretien','photo','refCommunaute','date_sacrement',
+        'lieunaissance_chretien','datenaissance_chretien','code_secret','photo','refCommunaute','date_sacrement',
         'statut_sacrement','tdio_chretien.author','tdio_chretien.refUser',
         'tdio_chretien.active',"tdio_chretien.created_at",
 
@@ -172,10 +173,12 @@ class tdio_chretienController extends Controller
             $request->image->move(public_path('/fichier'), $imageName);
 
             // $stringToSlug=substr($formData->noms_agent.''.$formData->noms_agent,0,16).'-'.$this->generateOpt(8);
-            // $slug =$this->makeSlug($stringToSlug);
-
+            // $slug =$this->makeSlug($stringToSlug); code_secret
+            //sexe_chretien etatcivil_chretien
             tdio_chretien::create([
                 'noms_chretien'  =>  $formData->noms_chretien,
+                'sexe_chretien'    =>  $formData->sexe_chretien,
+                'etatcivil_chretien'    =>  $formData->etatcivil_chretien,
                 'adresse_chretien'    =>  $formData->adresse_chretien,
                 'contact1_chretien'         =>  $formData->contact1_chretien,                
                 'contact2_chretien'      =>  $formData->contact2_chretien,                
@@ -184,6 +187,7 @@ class tdio_chretienController extends Controller
                 'nom_mere_chretien'  =>  $formData->nom_mere_chretien,
                 'lieunaissance_chretien'  =>  $formData->lieunaissance_chretien,
                 'datenaissance_chretien'  =>  $formData->datenaissance_chretien,
+                'code_secret'  =>  $formData->code_secret,
                 'photo'         =>  $imageName,
                 'refCommunaute'  =>  $formData->refCommunaute,                
                 'author'         =>  $formData->author,
@@ -200,6 +204,8 @@ class tdio_chretienController extends Controller
             // $slug =$this->makeSlug($stringToSlug);
             tdio_chretien::create([
                 'noms_chretien'  =>  $formData->noms_chretien,
+                'sexe_chretien'    =>  $formData->sexe_chretien,
+                'etatcivil_chretien'    =>  $formData->etatcivil_chretien,
                 'adresse_chretien'    =>  $formData->adresse_chretien,
                 'contact1_chretien'         =>  $formData->contact1_chretien,                
                 'contact2_chretien'      =>  $formData->contact2_chretien,                
@@ -208,6 +214,7 @@ class tdio_chretienController extends Controller
                 'nom_mere_chretien'  =>  $formData->nom_mere_chretien,
                 'lieunaissance_chretien'  =>  $formData->lieunaissance_chretien,
                 'datenaissance_chretien'  =>  $formData->datenaissance_chretien,
+                'code_secret'  =>  $formData->code_secret,
                 'photo'         =>  'avatar.png',
                 'refCommunaute'  =>  $formData->refCommunaute,                
                 'author'         =>  $formData->author,
@@ -235,6 +242,8 @@ class tdio_chretienController extends Controller
            
             tdio_chretien::where('id',$formData->id)->update([
                 'noms_chretien'  =>  $formData->noms_chretien,
+                'sexe_chretien'    =>  $formData->sexe_chretien,
+                'etatcivil_chretien'    =>  $formData->etatcivil_chretien,
                 'adresse_chretien'    =>  $formData->adresse_chretien,
                 'contact1_chretien'         =>  $formData->contact1_chretien,                
                 'contact2_chretien'      =>  $formData->contact2_chretien,                
@@ -243,6 +252,7 @@ class tdio_chretienController extends Controller
                 'nom_mere_chretien'  =>  $formData->nom_mere_chretien,
                 'lieunaissance_chretien'  =>  $formData->lieunaissance_chretien,
                 'datenaissance_chretien'  =>  $formData->datenaissance_chretien,
+                'code_secret'  =>  $formData->code_secret,
                 'photo'         =>  $imageName,
                 'refCommunaute'  =>  $formData->refCommunaute,                
                 'author'         =>  $formData->author,
@@ -260,6 +270,8 @@ class tdio_chretienController extends Controller
 
             tdio_chretien::where('id',$formData->id)->update([
                 'noms_chretien'  =>  $formData->noms_chretien,
+                'sexe_chretien'    =>  $formData->sexe_chretien,
+                'etatcivil_chretien'    =>  $formData->etatcivil_chretien,
                 'adresse_chretien'    =>  $formData->adresse_chretien,
                 'contact1_chretien'         =>  $formData->contact1_chretien,                
                 'contact2_chretien'      =>  $formData->contact2_chretien,                
@@ -268,6 +280,7 @@ class tdio_chretienController extends Controller
                 'nom_mere_chretien'  =>  $formData->nom_mere_chretien,
                 'lieunaissance_chretien'  =>  $formData->lieunaissance_chretien,
                 'datenaissance_chretien'  =>  $formData->datenaissance_chretien,
+                'code_secret'  =>  $formData->code_secret,
                 'photo'         =>  'avatar.png',
                 'refCommunaute'  =>  $formData->refCommunaute,                
                 'author'         =>  $formData->author,
@@ -295,9 +308,9 @@ class tdio_chretienController extends Controller
         ->join('tdio_paroisse','tdio_paroisse.id','=','tdio_quartier.refParoisse')
         ->join('tdio_categorie_paroisse','tdio_categorie_paroisse.id','=','tdio_paroisse.refCatParoisse')
         //Chretien
-        ->select("tdio_chretien.id",'noms_chretien','adresse_chretien','contact1_chretien',
+        ->select("tdio_chretien.id",'noms_chretien','sexe_chretien','etatcivil_chretien','adresse_chretien','contact1_chretien',
         'contact2_chretien','mail_chretien','nom_pere_chretien','nom_mere_chretien',
-        'lieunaissance_chretien','datenaissance_chretien','photo','refCommunaute','date_sacrement',
+        'lieunaissance_chretien','datenaissance_chretien','code_secret','photo','refCommunaute','date_sacrement',
         'statut_sacrement','tdio_chretien.author','tdio_chretien.refUser',
         'tdio_chretien.active',"tdio_chretien.created_at",
 
